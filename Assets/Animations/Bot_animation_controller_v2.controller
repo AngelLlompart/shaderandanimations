@@ -103,7 +103,7 @@ AnimatorStateMachine:
     m_Position: {x: 420, y: 0, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -8182699157333135517}
-    m_Position: {x: 590, y: 450, z: 0}
+    m_Position: {x: 580, y: 430, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -4566539390577825304}
     m_Position: {x: 560, y: 340, z: 0}
@@ -475,7 +475,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Bot_animation_controller
+  m_Name: Bot_animation_controller_v2
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: run
@@ -483,31 +483,31 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: jump
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: walk
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: turnRight
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: turnLeft
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer

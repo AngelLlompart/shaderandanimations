@@ -41,5 +41,32 @@ public class BotAnimation : MonoBehaviour
         {
             _animator.SetBool("walk",false);
         }
+
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            _animator.SetTrigger("turnRight");
+            transform.rotation *= Quaternion.Euler(0,90,0);
+           /* Quaternion rotIni = transform.rotation;
+            Quaternion rotY = transform.rotation;
+            rotIni *= Quaternion.Euler(0,90,0);
+            while (rotY.y < rotIni.y)
+            {
+                transform.Rotate(0,1,0);
+                rotY = transform.rotation;
+            }*/
+        }
+        
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            _animator.SetTrigger("turnLeft");
+            transform.rotation *= Quaternion.Euler(0,-90,0);
+            //StartCoroutine(DelayedRotation(-90));
+        }
+    }
+
+    private IEnumerator DelayedRotation(float y)
+    {
+        yield return new WaitForSecondsRealtime(0.2f);
+        transform.rotation *= Quaternion.Euler(0,y,0);
     }
 }
