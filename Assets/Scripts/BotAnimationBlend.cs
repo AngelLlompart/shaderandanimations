@@ -2,9 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BotAnimation : MonoBehaviour
+public class BotAnimationBlend : MonoBehaviour
 {
     private Animator _animator;
+
+    public float velocity = 0;
+
+    public float acceleration = 0.1f;
+
+    public float desacceleration = 0.5f;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,15 +21,7 @@ public class BotAnimation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.LeftShift))
-        {
-            _animator.SetBool("run",true);
-        }
-        else
-        {
-            _animator.SetBool("run",false);
-        }
-
+        bool move = Input.GetKey(KeyCode.W);
         if (Input.GetKeyDown(KeyCode.Space))
         {
             _animator.SetBool("jump", true);
@@ -33,28 +31,21 @@ public class BotAnimation : MonoBehaviour
             _animator.SetBool("jump", false);
         }
 
-        if (Input.GetKey(KeyCode.W))
+        if (move && velocity < 1)
         {
-            _animator.SetBool("walk",true);
+            velocity += Time.deltaTime * acceleration;
         }
-        else
+        if(!move && velocity > 0)
         {
-            _animator.SetBool("walk",false);
+            velocity -= Time.deltaTime * desacceleration;
         }
 
+        _animator.SetFloat("Velocity", velocity);
         if (Input.GetKeyDown(KeyCode.D))
         {
             _animator.SetTrigger("turnRight");
-            //transform.rotation *= Quaternion.Euler(0,90,0);
             StartCoroutine(DelayedRotation(90));
-            /* Quaternion rotIni = transform.rotation;
-            Quaternion rotY = transform.rotation;
-            rotIni *= Quaternion.Euler(0,90,0);
-            while (rotY.y < rotIni.y)
-            {
-                transform.Rotate(0,1,0);
-                rotY = transform.rotation;
-            }*/
+            velocity = 0;
         }
         
         if (Input.GetKeyDown(KeyCode.A))
@@ -62,6 +53,7 @@ public class BotAnimation : MonoBehaviour
             _animator.SetTrigger("turnLeft");
             //transform.rotation *= Quaternion.Euler(0,-90,0);
             StartCoroutine(DelayedRotation(-90));
+            velocity = 0;
         }
     }
 
