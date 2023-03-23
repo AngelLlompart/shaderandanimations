@@ -46,7 +46,7 @@ public class BotAnimation : MonoBehaviour
         {
             _animator.SetTrigger("turnRight");
             //transform.rotation *= Quaternion.Euler(0,90,0);
-            StartCoroutine(DelayedRotation(90));
+            //StartCoroutine(DelayedRotation(90));
             /* Quaternion rotIni = transform.rotation;
             Quaternion rotY = transform.rotation;
             rotIni *= Quaternion.Euler(0,90,0);

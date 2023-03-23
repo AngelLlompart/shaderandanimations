@@ -37,7 +37,11 @@ public class Turn : StateMachineBehaviour
 
     public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex, AnimatorControllerPlayable controller)
     {
+        Debug.Log(animator.transform.rotation);
+        Debug.Log(animator.transform.Find("mixamorig:Hips").transform.rotation);
+        Debug.Log(animator.transform.Find("mixamorig:Hips").Find("mixamorig:LeftUpLeg").transform.rotation);
+        Debug.Log(animator.transform.Find("mixamorig:Hips").Find("mixamorig:RightUpLeg").transform.rotation);
         //animator.transform.parent.rotation = animator.transform.rotation;
-        //animator.transform.rotation *= Quaternion.Euler(0,90,0);
+        animator.transform.rotation *= Quaternion.Euler(0,-90,0);
     }
 }
