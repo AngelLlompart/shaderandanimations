@@ -44,4 +44,5 @@ public class Turn : StateMachineBehaviour
         //animator.transform.parent.rotation = animator.transform.rotation;
         animator.transform.rotation *= Quaternion.Euler(0,-90,0);
     }
+    
 }
